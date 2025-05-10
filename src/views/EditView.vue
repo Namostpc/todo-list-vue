@@ -30,6 +30,10 @@ const editTodo = async (selectedTodo) => {
     await todoStore.editTodo(bodyData, todoId.value);
     isUpdated.value = true;
     isLoaded.value = false;
+
+    setTimeout(() => {
+        isUpdated.value = false;
+    },2000)
   } catch (error) {
     console.log("error", error);
   }
@@ -42,6 +46,9 @@ const deleteTodo = async (todoId) => {
     await todoStore.loadTodos();
     isDeleted.value = true;
     isLoaded.value = false;
+    setTimeout(() => {
+        isDeleted.value = false;
+    },2000)
   } catch (error) {
     console.log("error", error);
   }
